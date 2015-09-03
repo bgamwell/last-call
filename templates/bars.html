@@ -1,14 +1,17 @@
 <!-- Info Windows -->
 
-<info-window id='Powerhouse' max-width="200" visible-on-marker="{{bar.name}}">
-  <div ng-non-bindable="">
-    <div id="siteNotice"></div>
-    <h1 id="firstHeading" class="firstHeading">Powerhouse</h1>
-    <div id="bodyContent">
-      <p><b>Powerhouse</b>, </p>
-      <p>Attribution: Uluru, <a href="//en.wikipedia.org/w/index.php?title=Uluru&amp;oldid=297882194">
-      http://en.wikipedia.org/w/index.php?title=Uluru</a>
-      (last visited June 22, 2009).</p>
-    </div>
+<!-- this page seems out of scope; bars are binding to each info window, but bar information is not rendering to each window. Perhaps an ng-repeat isn't possible in an info window -->
+
+<div ng-repeat="bar in bars">
+  <info-window id="{{bar.name}}" visible-on-marker="{{bar.name}}" max-width="200">
+    <div ng-non-bindable="false">
+      <div>
+        <div id="siteNotice"></div>
+        <h1 id="firstHeading" class="firstHeading">{{bar.name}}</h1>
+        <div id="bodyContent">
+          <!-- <p>Website: <a href='{{bar.url}}'>{{bar.url}}</a></p> -->
+        </div>
+      </div>
+    </info-window>
   </div>
-</info-window>
+</div>
